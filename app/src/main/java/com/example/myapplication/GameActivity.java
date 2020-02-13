@@ -43,7 +43,7 @@ public class GameActivity extends AppCompatActivity {
         });
 
         if (Value.check) {
-            Value.countDownTimer = new CountDownTimer(20000, 1000) {
+            Value.countDownTimer = new CountDownTimer(120000, 1000) {
 
                 public void onTick(long time) {
                     EditText editText = findViewById(R.id.timer);
