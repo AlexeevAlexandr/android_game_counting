@@ -3,12 +3,14 @@ package com.example.myapplication;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.service.SQLiteService;
 import com.example.myapplication.value.Value;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             Value.countDownTimer.cancel();
+        } catch (Exception ignored){}
+
+        try {
+            Value.bestScore = new SQLiteService(this).get();
+            Log.i("MainActivity", "Best score from database: " + Value.bestScore);
         } catch (Exception ignored){}
 
         Button startButton = findViewById(R.id.startButton);

@@ -47,8 +47,7 @@ public class GameActivity extends AppCompatActivity {
 
                 public void onTick(long time) {
                     EditText editText = findViewById(R.id.timer);
-                    editText.setText(String.format(Locale.getDefault(),"%d:%d",
-                            ((time / 1000)/60), ((time / 1000)%60)));
+                    editText.setText(String.format(Locale.getDefault(),"%d:%d", ((time/1000)/60), ((time/1000)%60)));
                 }
 
                 public void onFinish() {

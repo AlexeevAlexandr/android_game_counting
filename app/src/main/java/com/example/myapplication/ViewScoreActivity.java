@@ -2,11 +2,13 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.service.SQLiteService;
 import com.example.myapplication.value.Value;
 
 import java.util.Locale;
@@ -20,6 +22,8 @@ public class ViewScoreActivity extends AppCompatActivity {
 
         if (Value.bestScore < Value.score) {
             Value.bestScore = Value.score;
+            new SQLiteService(this).update(Value.bestScore);
+            Log.i("ViewScoreActivity","Saved new best score: " + Value.bestScore);
         }
 
         TextView bestScore = findViewById(R.id.bestScore);
