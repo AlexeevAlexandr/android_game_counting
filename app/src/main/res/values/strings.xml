@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Counting</string>
+    <string name="start">Start</string>
+    <string name="min_value">0</string>
+    <string name="max_value">50</string>
+    <string name="max_value_text">Max Value</string>
+    <string name="min_value_text">Min Value</string>
+    <string name="game">Game</string>
+    <string name="check">Check</string>
+    <string name="exit">Exit</string>
+    <string name="incorrectAnswer">Incorrect answer</string>
+    <string name="emptyAnswer">Enter the answer</string>
+    <string name="game_on_the_time">game on the time (2 min)</string>
+    <string name="restart">Restart</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="confirm_exit">Confirm exit</string>
+</resources>
