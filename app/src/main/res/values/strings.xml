@@ -15,4 +15,7 @@
     <string name="yes">yes</string>
     <string name="no">no</string>
     <string name="confirm_exit">Confirm exit</string>
+    <string name="addition_and_subtraction">Addition and Subtraction</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="division">Division</string>
 </resources>

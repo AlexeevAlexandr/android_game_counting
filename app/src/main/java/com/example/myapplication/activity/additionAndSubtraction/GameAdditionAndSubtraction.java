@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activity.additionAndSubtraction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,40 +9,45 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.service.ExpressionService;
+import com.example.myapplication.R;
+import com.example.myapplication.activity.score.ViewScoreActivity;
+import com.example.myapplication.service.AdditionAndSubtractionService;
 import com.example.myapplication.value.Value;
 
 import java.util.Locale;
 
-public class GameActivity extends AppCompatActivity {
+import static com.example.myapplication.value.Value.check;
+
+public class GameAdditionAndSubtraction extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game);
+        setContentView(R.layout.game_addition_and_subtraction);
 
-        TextView textView = findViewById(R.id.expression);
         TextView alert = findViewById(R.id.alert);
+        TextView expression = findViewById(R.id.expression);
         TextView answer = findViewById(R.id.answer);
 
-        textView.setText(ExpressionService.getExpression());
+        expression.setText(AdditionAndSubtractionService.getExpression());
 
         Button checkButton = findViewById(R.id.check);
         checkButton.setOnClickListener(e -> {
 
             if (answer.getText().toString().isEmpty()) {
                 alert.setText(getString(R.string.emptyAnswer));
-            } else if (ExpressionService.checkExpression(textView.getText().toString(), answer.getText().toString())) {
-                textView.setText(ExpressionService.getExpression());
+            } else if (AdditionAndSubtractionService.checkExpression(expression.getText().toString(), answer.getText().toString())) {
+                expression.setText(AdditionAndSubtractionService.getExpression());
                 alert.setText("");
                 answer.setText("");
                 Value.score ++;
             } else {
+                answer.setText("");
                 alert.setText(getString(R.string.incorrectAnswer));
             }
         });
 
-        if (Value.check) {
+        if (check) {
             Value.countDownTimer = new CountDownTimer(120000, 1000) {
 
                 public void onTick(long time) {

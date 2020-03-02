@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/abc">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/game"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/rounded_button">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_white">
+
+                <TextView
+                    android:id="@+id/alertMultiplication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:textColor="@color/alert"
+                    android:textSize="15sp"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/expressionMultiplication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal" />
+
+                <EditText
+                    android:id="@+id/answerMultiplication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_column="0"
+                    android:inputType="number"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal" />
+
+            </GridLayout>
+        </GridLayout>
+
+        <Button
+            android:id="@+id/checkMultiplication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:background="@drawable/rounded_button"
+            android:layout_margin="20dp"
+            android:text="@string/check" />
+
+    </GridLayout>
+</LinearLayout>

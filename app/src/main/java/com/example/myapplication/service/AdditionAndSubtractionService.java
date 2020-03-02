@@ -7,7 +7,7 @@ import com.example.myapplication.value.Value;
 import java.util.Arrays;
 import java.util.List;
 
-public class ExpressionService {
+public class AdditionAndSubtractionService {
 
     public static boolean checkExpression(String expression, String answer) {
         String[] arr = expression.split(" ");
@@ -18,7 +18,7 @@ public class ExpressionService {
             b = Integer.parseInt(arr[2]);
             c = Integer.parseInt(answer);
         } catch (Exception e) {
-            Log.d("ExpressionService", e.getMessage());
+            Log.d(AdditionAndSubtractionService.class.getName(), e.getMessage());
         }
 
         switch (arr[1]){

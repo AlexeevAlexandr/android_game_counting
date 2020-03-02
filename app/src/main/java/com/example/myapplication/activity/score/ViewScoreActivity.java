@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activity.score;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.R;
+import com.example.myapplication.activity.additionAndSubtraction.GameAdditionAndSubtraction;
 import com.example.myapplication.service.SQLiteService;
 import com.example.myapplication.value.Value;
 
 import java.util.Locale;
+
+import static com.example.myapplication.value.Value.bestScore;
+import static com.example.myapplication.value.Value.score;
 
 public class ViewScoreActivity extends AppCompatActivity {
 
@@ -20,10 +25,10 @@ public class ViewScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_score);
 
-        if (Value.bestScore < Value.score) {
-            Value.bestScore = Value.score;
-            new SQLiteService(this).update(Value.bestScore);
-            Log.i("ViewScoreActivity","Saved new best score: " + Value.bestScore);
+        if (bestScore < score) {
+            bestScore = score;
+            new SQLiteService(this).update(bestScore);
+            Log.i("ViewScoreActivity","Saved new best score: " + bestScore);
         }
 
         TextView bestScore = findViewById(R.id.bestScore);
@@ -35,7 +40,7 @@ public class ViewScoreActivity extends AppCompatActivity {
         Button restart = findViewById(R.id.restart);
         restart.setOnClickListener(e -> {
             Value.score = 0;
-            Intent intent = new Intent(this, GameActivity.class);
+            Intent intent = new Intent(this, GameAdditionAndSubtraction.class);
             startActivity(intent);
         });
     }

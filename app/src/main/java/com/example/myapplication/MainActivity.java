@@ -3,47 +3,28 @@ package com.example.myapplication;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.service.SQLiteService;
-import com.example.myapplication.value.Value;
+import com.example.myapplication.activity.additionAndSubtraction.AdditionAndSubtraction;
+import com.example.myapplication.activity.division.Division;
+import com.example.myapplication.activity.multiplication.Multiplication;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_activity);
 
-        try {
-            Value.countDownTimer.cancel();
-        } catch (Exception ignored){}
+        Button buttonAS = findViewById(R.id.buttonAS);
+        Button buttonM = findViewById(R.id.buttonM);
+        Button buttonD = findViewById(R.id.buttonD);
 
-        try {
-            Value.bestScore = new SQLiteService(this).get();
-            Log.i("MainActivity", "Best score from database: " + Value.bestScore);
-        } catch (Exception ignored){}
-
-        Button startButton = findViewById(R.id.startButton);
-        startButton.setOnClickListener(e -> {
-
-            CheckBox checkBox = findViewById(R.id.checkBox);
-            Value.check = checkBox.isChecked();
-
-            EditText minValue = findViewById(R.id.minValue);
-            EditText maxValue = findViewById(R.id.maxValue);
-            Value.min = Integer.parseInt(minValue.getText().toString());
-            Value.max = Integer.parseInt(maxValue.getText().toString());
-            Value.score = 0;
-
-            Intent intent = new Intent(this, GameActivity.class);
-            startActivity(intent);
-        });
+        buttonAS.setOnClickListener(e -> switchToAdditionAndSubtraction());
+        buttonM.setOnClickListener(e -> switchToMultiplication());
+        buttonD.setOnClickListener(e -> switchToDivision());
 
         Button exitButton = findViewById(R.id.exitButton);
         exitButton.setOnClickListener(e ->
@@ -56,6 +37,21 @@ public class MainActivity extends AppCompatActivity {
                         })
                         .setNegativeButton(getString(R.string.no), (a, b) -> {
                         })
-                .show());
+                        .show());
+    }
+
+    private void switchToAdditionAndSubtraction() {
+        Intent intent = new Intent(this, AdditionAndSubtraction.class);
+        startActivity(intent);
+    }
+
+    private void switchToMultiplication() {
+        Intent intent = new Intent(this, Multiplication.class);
+        startActivity(intent);
+    }
+
+    private void switchToDivision() {
+        Intent intent = new Intent(this, Division.class);
+        startActivity(intent);
     }
 }

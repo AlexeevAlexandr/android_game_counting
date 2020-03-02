@@ -2,6 +2,8 @@ package com.example.myapplication.value;
 
 import android.os.CountDownTimer;
 
+import java.util.List;
+
 public class Value {
 
     public static int max;
@@ -15,4 +17,6 @@ public class Value {
     public static boolean check;
 
     public static CountDownTimer countDownTimer;
+
+    public static List<Integer> listCheckboxes;
 }

@@ -9,24 +9,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+        <activity android:name=".MainActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".GameActivity"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            <activity android:name=".activity.additionAndSubtraction.AdditionAndSubtraction"
+                android:parentActivityName=".MainActivity"
+                android:screenOrientation="fullSensor">
+            </activity>
+                <activity android:name=".activity.additionAndSubtraction.GameAdditionAndSubtraction"
+                    android:parentActivityName=".activity.additionAndSubtraction.AdditionAndSubtraction"
+                    android:screenOrientation="fullSensor">
+                </activity>
+                <activity android:name=".activity.score.ViewScoreActivity"
+                    android:parentActivityName=".activity.additionAndSubtraction.GameAdditionAndSubtraction"
+                    android:screenOrientation="fullSensor">
+                </activity>
 
-        <activity android:name=".ViewScoreActivity"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            <activity android:name=".activity.multiplication.Multiplication"
+                android:parentActivityName=".MainActivity"
+                android:screenOrientation="fullSensor">
+            </activity>
+                <activity android:name=".activity.multiplication.GameMultiplication"
+                    android:parentActivityName=".activity.multiplication.Multiplication"
+                    android:screenOrientation="fullSensor">
+                </activity>
+
+            <activity android:name=".activity.division.Division"
+                android:parentActivityName=".MainActivity"
+                android:screenOrientation="fullSensor">
+            </activity>
+                <activity android:name=".activity.division.GameDivision"
+                    android:parentActivityName=".activity.division.Division"
+                    android:screenOrientation="fullSensor">
+                </activity>
 
     </application>
 

@@ -1,6 +1,6 @@
 package com.example.myapplication;
 
-import com.example.myapplication.service.ExpressionService;
+import com.example.myapplication.service.AdditionAndSubtractionService;
 import com.example.myapplication.value.Value;
 
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class ExampleUnitTest {
     public void getRandomSignTest() {
         Value.min = 0;
         Value.max = 10;
-        String expression = ExpressionService.getExpression();
+        String expression = AdditionAndSubtractionService.getExpression();
         Pattern pattern = Pattern.compile("(^\\w+\\s[+-]\\s\\w+\\s=)");
         Matcher matcher = pattern.matcher(expression);
         assertTrue(matcher.find());
@@ -30,12 +30,12 @@ public class ExampleUnitTest {
     @Test
     public void checkExpressionPlusTest() {
         String expression = "2 + 2 =";
-        assertTrue(ExpressionService.checkExpression(expression, "4"));
+        assertTrue(AdditionAndSubtractionService.checkExpression(expression, "4"));
     }
 
     @Test
     public void checkExpressionMinusTest() {
         String expression = "2 - 2 =";
-        assertTrue(ExpressionService.checkExpression(expression, "0"));
+        assertTrue(AdditionAndSubtractionService.checkExpression(expression, "0"));
     }
 }
